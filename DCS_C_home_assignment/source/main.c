@@ -52,7 +52,7 @@ int main() {
 			break;
 
 		case '6':
-			show_menu(menu);
+			show(menu);
 			break;
 
 		case '7':
