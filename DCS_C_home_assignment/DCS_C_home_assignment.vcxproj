@@ -139,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="E:\programing\C\DCS\home_assignment1\example1\example1 - multiple src\source\func.c" />
-    <ClCompile Include="E:\programing\C\DCS\home_assignment1\example1\example1 - multiple src\source\main.c" />
+    <ClCompile Include="func.c" />
+    <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\programing\C\DCS\home_assignment1\example1\example1 - multiple src\header\func.h" />
+    <ClInclude Include="func.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

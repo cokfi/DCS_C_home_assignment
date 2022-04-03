@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\programing\C\DCS\home_assignment1\example1\example1 - multiple src\source\func.c">
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\programing\C\DCS\home_assignment1\example1\example1 - multiple src\source\main.c">
+    <ClCompile Include="func.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\programing\C\DCS\home_assignment1\example1\example1 - multiple src\header\func.h">
+    <ClInclude Include="func.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
