@@ -5,15 +5,15 @@
 
 int main() {
 
-	int Mat[M][M], auxMat[M][M];
-	int matTrace, maxDiag, offset = 0;
-	char Selector = '0',ch, str[3];
+	int Mat1[M][M], Mat2[M][M], auxMat[M][M];
+	int matTrace1, matTrace2, maxDiag1, maxDiag2, offset = 0;
+	char Selector = '0',matName[30],str[3];
 
 	show(menu);
 
 	while (1) {
 
-		printf("insert a menu clause number: ");
+		printf("Choose a menu clause number: ");
 		Selector = getchar();
 		getchar(); // get the enter key
 
@@ -22,40 +22,103 @@ int main() {
 			break;
 
 		case '1':
+			//fill matrix 1
 			do {
-				printf("Insert an offset value between 0-100: ");
+				printf("In order to creat Mat1 please insert an offset value between 0-100:");
 				gets(str);
 				sscanf_s(str, "%d", &offset);
 				if (offset >= 0 && offset <= 100) break;
 
 			} while (1);
-			FillMatrix(Mat, offset);
+			FillMatrix(Mat1, offset);
+			//fill matrix 2
+			do {
+				printf("In order to creat Mat1 please insert an offset value between 0-100:");
+				gets(str);
+				sscanf_s(str, "%d", &offset);
+				if (offset >= 0 && offset <= 100) break;
+
+			} while (1);
+			FillMatrix(Mat2, offset);
 			break;
 
 		case '2':
-			maxDiag = DiagonalsMax(Mat);
-			printf("The maximal diagonal element = %d\n", maxDiag);
-			break;
-
-		case '3':
-			matTrace = ComputeTrace(Mat);
-			printf("The mat Trace value = %d\n", matTrace);
-			break;
-
-		case '4':
-			Transpose(Mat, auxMat);
+			// adding two matrices
+			for (int i = 0; i < M; ++i)
+				for ( int j = 0; j < M; ++j) {
+					auxMat[i][j] = Mat1[i][j] + Mat2[i][j];
+					
+				}
 			show_matrix(auxMat);
+			break;
+		case '3':
+			//find max diagonal element
+			maxDiag1 = DiagonalsMax(Mat1);
+			maxDiag2 = DiagonalsMax(Mat2);
+			if (maxDiag1 > maxDiag2) {
+				printf("Mat1 has the maximal diagonal element value: %d", maxDiag1);
+			}
+			else {
+				printf("Mat2 has the maximal diagonal element value: %d", maxDiag2);
+			}
+			break;
+
+			
+		case '4':
+			//find the biggest trace 
+			matTrace1 = ComputeTrace(Mat1);
+			matTrace2 = ComputeTrace(Mat2);
+			if (matTrace1 > matTrace2) {
+				printf("Mat1 has the maximal Trace value : %d", matTrace1);
+			}
+			else {
+				printf("Mat2 has the maximal Trace value : %d", matTrace2);
+			}
 			break;
 
 		case '5':
-			show_matrix(Mat);
+			// Copy mat1 right diagonals to mat2 left diagonals
+			for (int i = 0; i < M; ++i)
+				 Mat2[i][i] = Mat1[i][M-1-i] ;
+
 			break;
 
 		case '6':
-			show(menu);
+			while (1) {
+				printf("Insert the wanted matrix[Mat1 or Mat2] :");
+				fgets(matName, sizeof(matName), stdin);  // read string
+				if (matName[3] == '1') {
+					Transpose(Mat1, auxMat);
+					break;
+				}
+				else if (matName[3] == '2') {
+					Transpose(Mat2, auxMat);
+					break;
+				}
+			}
+			show_matrix(auxMat);
 			break;
 
 		case '7':
+			while (1) {
+				printf("Insert the wanted matrix[Mat1 or Mat2] :");
+				fgets(matName, sizeof(matName), stdin);  // read string
+				if (matName[3] == '1') {
+					show_matrix(Mat1);
+					break;
+				}
+				else if (matName[3] == '2') {
+					show_matrix(Mat2);
+					break;
+				}
+			}
+			break;
+
+		case '8':
+			show(menu);
+			break;
+
+		case '9':
 			return 0;
 
 		default:
