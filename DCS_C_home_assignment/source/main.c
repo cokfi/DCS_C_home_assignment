@@ -33,7 +33,7 @@ int main() {
 			FillMatrix(Mat1, offset);
 			//fill matrix 2
 			do {
-				printf("In order to creat Mat1 please insert an offset value between 0-100:");
+				printf("In order to creat Mat2 please insert an offset value between 0-100:");
 				gets(str);
 				sscanf_s(str, "%d", &offset);
 				if (offset >= 0 && offset <= 100) break;
@@ -56,10 +56,10 @@ int main() {
 			maxDiag1 = DiagonalsMax(Mat1);
 			maxDiag2 = DiagonalsMax(Mat2);
 			if (maxDiag1 > maxDiag2) {
-				printf("Mat1 has the maximal diagonal element value: %d", maxDiag1);
+				printf("Mat1 has the maximal diagonal element value: %d\n", maxDiag1);
 			}
 			else {
-				printf("Mat2 has the maximal diagonal element value: %d", maxDiag2);
+				printf("Mat2 has the maximal diagonal element value: %d\n", maxDiag2);
 			}
 			break;
 
@@ -69,10 +69,10 @@ int main() {
 			matTrace1 = ComputeTrace(Mat1);
 			matTrace2 = ComputeTrace(Mat2);
 			if (matTrace1 > matTrace2) {
-				printf("Mat1 has the maximal Trace value : %d", matTrace1);
+				printf("Mat1 has the maximal Trace value : %d\n", matTrace1);
 			}
 			else {
-				printf("Mat2 has the maximal Trace value : %d", matTrace2);
+				printf("Mat2 has the maximal Trace value : %d\n", matTrace2);
 			}
 			break;
 
